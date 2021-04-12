@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      tr,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="gugudan"></table>
+    <script>
+      var arrdata = [];
+      for (var i = 0; i < 9; i++) {
+        arrdata.push([i + 1]);
+        for (var j = 1; j < 9; j++) {
+          arrdata[i].push((i + 1) * (j + 1));
+        }
+      }
+      const table = document.getElementById("gugudan");
+      for (var j = 0; j < 9; j++) {
+        const td = document.createElement("td");
+        td.innerHTML = `${j + 1}단`;
+        table.appendChild(td);
+      }
+      for (var i = 0; i < 9; i++) {
+        const tr = document.createElement("tr");
+
+        for (var j = 0; j < 9; j++) {
+          const td = document.createElement("td");
+          td.innerHTML = `${j + 1}*${i + 1}=${(i + 1) * (j + 1)}`;
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+
+      function gugudan() {
+        for (var i = 0; i < arrdata.length; i++) {
+          document.write(arrdata[i].join(" "));
+          document.write("<br/>");
+        }
+        document.write("<a href='assignment2.html'>돌아가기</a>");
+      }
+    </script>
+
+    <button type="button" onclick="gugudan()">구구단 배열 데이터 보기</button>
+  </body>
+</html>
