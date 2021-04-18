@@ -4,51 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      table,
-      tr,
-      td {
-        border: 1px solid black;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <title>KAKAO,오늘 날씨 어때?</title>
   </head>
   <body>
-    <table id="gugudan"></table>
-    <script>
-      var arrdata = [];
-      for (var i = 0; i < 9; i++) {
-        arrdata.push([i + 1]);
-        for (var j = 1; j < 9; j++) {
-          arrdata[i].push((i + 1) * (j + 1));
-        }
-      }
-      const table = document.getElementById("gugudan");
-      for (var j = 0; j < 9; j++) {
-        const td = document.createElement("td");
-        td.innerHTML = `${j + 1}단`;
-        table.appendChild(td);
-      }
-      for (var i = 0; i < 9; i++) {
-        const tr = document.createElement("tr");
+    <div id="map"></div>
+    <div id="mapCenter"></div>
 
-        for (var j = 0; j < 9; j++) {
-          const td = document.createElement("td");
-          td.innerHTML = `${j + 1}*${i + 1}=${(i + 1) * (j + 1)}`;
-          tr.appendChild(td);
-        }
-        table.appendChild(tr);
-      }
-
-      function gugudan() {
-        for (var i = 0; i < arrdata.length; i++) {
-          document.write(arrdata[i].join(" "));
-          document.write("<br/>");
-        }
-        document.write("<a href='./index.html'>돌아가기</a>");
-      }
-    </script>
-
-    <button type="button" onclick="gugudan()">구구단 배열 데이터 보기</button>
+    <div class="wrapFilter top"></div>
+    <div id="center">
+      <div class="wrapFilter left"></div>
+      <div class="wrapFilter right">
+        <div id="mapSearch">
+          <h1>
+            <p>KAKAO</p>
+            , 오늘 날씨 어때?
+          </h1>
+          <h2>&#127965; 박규정의 사이트 입니다.</h2>
+          <h2>위치를 검색해 보세요</h2>
+          <form>
+            <input type="text" id="eventText" />
+            <button id="submit">
+              <i id="searchIcon"></i>
+            </button>
+          </form>
+          <button id="weather">
+            <a
+              id="weatherA"
+              href="./weather.html"
+              onclick="location.href=this.href+'?key='+scrt_var;return false;"
+            >
+              현재 날씨</a
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="wrapFilter bottom"></div>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b1a7e756a3bad19df2ce1a965afea484&libraries=services,clusterer,drawing"
+    ></script>
+    <script src="index.js"></script>
   </body>
 </html>
