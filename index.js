@@ -35,7 +35,7 @@ btn.addEventListener("click", (e) => {
         coords = new kakao.maps.LatLng(result[0].y, result[0].x);
         map.setCenter(coords);
         marker.setPosition(coords);
-        url = `http://api.openweathermap.org/data/2.5/weather?lat=${coords.Ma}&lon=${coords.La}&appid=8cd5dfb23d55498d08746622747f28e1`;
+        url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.Ma}&lon=${coords.La}&appid=8cd5dfb23d55498d08746622747f28e1`;
         fetch(url)
           .then((res) => res.json())
           .then((data) => {
