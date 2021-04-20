@@ -39,7 +39,9 @@ btn.addEventListener("click", (e) => {
         fetch(url)
           .then((res) => res.json())
           .then((data) => {
-            localStorage.setItem("data", JSON.stringify(data));
+            const weather = window.sessionStorage;
+            weather.setItem("data", JSON.stringify(data));
+            // localStorage.setItem("data", JSON.stringify(data));
           });
       }
     }

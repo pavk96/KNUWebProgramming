@@ -1,6 +1,6 @@
 const icon = document.getElementById("icon");
 const temp = document.getElementById("temp");
-const weather = JSON.parse(localStorage.getItem("data"));
+const weather = JSON.parse(sessionStorage.getItem("data"));
 
 console.log(weather);
 
