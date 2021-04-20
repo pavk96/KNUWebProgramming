@@ -14,15 +14,12 @@ let coords = {};
 let url = "";
 const btn = document.getElementById("submit");
 const weatheBtn = document.getElementById("weatherA");
-// 지도 클릭시 좌표 값을 얻음
+// 지도 클릭시 좌표 값을 얻고 마킹을 함
 kakao.maps.event.addListener(map, "click", function (e) {
   latlng = e.latLng;
-  var message = "클릭한 위치의 위도는 " + latlng.getLat() + " 이고, ";
-  message += "경도는 " + latlng.getLng() + " 입니다";
-  console.log(message);
   marker.setPosition(latlng);
 });
-// 마커를 표시
+// 마커를 표함
 var marker = new kakao.maps.Marker({
   position: map.getCenter(),
 });
@@ -39,26 +36,12 @@ btn.addEventListener("click", (e) => {
         map.setCenter(coords);
         marker.setPosition(coords);
         url = `http://api.openweathermap.org/data/2.5/weather?lat=${coords.Ma}&lon=${coords.La}&appid=8cd5dfb23d55498d08746622747f28e1`;
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("data", JSON.stringify(data));
+          });
       }
     }
   );
 });
-
-const a = document.getElementById("aaa");
-a.addEventListener("click", (e) => {
-  e.preventDefault();
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      switch (data.weather[0].main) {
-        case "Clear":
-          console.log("HI");
-      }
-    });
-});
-// 날씨 버튼 클릭 시
-// weatheBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   if (coords !== {}) {
-//   }
-// });

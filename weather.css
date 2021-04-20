@@ -1,0 +1,50 @@
+/* https://meyerweb.com/eric/tools/css/reset/ 이 사이트의 reset 설정을 조금 수정했습니다 */
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  outline-style: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+body {
+  background-color: bisque;
+}
+#weather {
+  width: auto;
+  height: 32px;
+  border: none;
+  letter-spacing: 1px;
+  font: 400 13.3333px Arial;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+}
+
+#weather a {
+  font-size: x-large;
+  color: black;
+  text-decoration: none;
+}
+#iconDiv {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+#temp {
+  margin: 0 auto;
+}
